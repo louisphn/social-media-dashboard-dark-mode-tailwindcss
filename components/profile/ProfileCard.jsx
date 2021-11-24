@@ -1,6 +1,6 @@
-import IconArea from '../common/IconArea';
-import { icon } from '../../lib/data';
-import { kFormatter } from '../../lib/helper';
+import IconArea from "../common/IconArea";
+import { icon } from "../../lib/data";
+import { kFormatter } from "../../lib/helper";
 
 // stats: {type: string, stat: number} (type: increase/ decrease, stat: number of increment/ decrement);
 
@@ -10,9 +10,9 @@ const ProfileCard = (props) => {
   return (
     <div
       className={`w-11/12 h-[220px] relative rounded-xl overflow-hidden my-8 ${
-        type !== 'instagram'
-          ? `bg-${type}`
-          : 'bg-gradient-to-r from-instagram-start to-instagram-end'
+        type !== "instagram"
+          ? `bg-${type}-primary`
+          : "bg-gradient-to-r from-instagram-start to-instagram-end"
       } md:w-[21%]`}
     >
       <div
@@ -22,10 +22,10 @@ const ProfileCard = (props) => {
           <div className="block w-[24px] h-[24px] mb-4">
             <IconArea
               src={icon[type]}
-              layout={'responsive'}
+              layout={"responsive"}
               width={56}
               height={56}
-              objectFit={'cover'}
+              objectFit={"cover"}
             />
           </div>
           <p className="font-bold ml-[8px] text-text-light dark:text-text-dark">{`@${userName}`}</p>
@@ -38,21 +38,19 @@ const ProfileCard = (props) => {
             <p className="text-text-light dark:text-text-dark">FOLLOWERS</p>
           </div>
           <div className="flex items-center jutstify-center">
-            <div className="block w-[12px] h-[8px]">
-              <IconArea
-                src={
-                  stats.type === 'increase' ? '/icon-up.svg' : '/icon-down.svg'
-                }
-                width={56}
-                height={56}
-                objectFit={'contain'}
-              />
-            </div>
+            <IconArea
+              src={
+                stats.type === "increase" ? "/icon-up.svg" : "/icon-down.svg"
+              }
+              width={12}
+              height={8}
+              objectFit={"contain"}
+            />
             <p
               className={`ml-[8px] ${
-                stats.type === 'increase'
-                  ? 'text-lime-green'
-                  : 'text-bright-red'
+                stats.type === "increase"
+                  ? "text-lime-green"
+                  : "text-bright-red"
               }`}
             >
               {stats.stat} Today
