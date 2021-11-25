@@ -14,6 +14,7 @@ module.exports = {
       "bg-instagram-end",
       "bg-youtube-primary",
       "bg-background-dark",
+      "left-[25px]",
     ],
   },
   darkMode: "class", // or 'media' or 'class'
