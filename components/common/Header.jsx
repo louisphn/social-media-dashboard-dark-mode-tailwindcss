@@ -12,6 +12,13 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMq.matches) {
+      setTheme("dark");
+    } else setTheme("light");
+  }, []);
+
+  useEffect(() => {
     if (theme === "dark") {
       setActive(true);
     } else setActive(false);
