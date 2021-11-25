@@ -1,19 +1,28 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
-import Switch from './Switch';
+import Switch from "./Switch";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const { theme, setTheme } = useTheme();
 
   const handleChange = (e) => {
-    setActive(e.target.checked);
+    setTheme(e.target.checked ? "dark" : "light");
   };
 
   useEffect(() => {
-    setTheme(active ? 'dark' : 'light');
-  }, [active]);
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMq.matches) {
+      setTheme("dark");
+    } else setTheme("light");
+  }, []);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      setActive(true);
+    } else setActive(false);
+  }, [theme]);
 
   return (
     <header className="w-screen h-[24vw] flex justify-center md:absolute md:top-0 md:bg-background-header-light md:dark:bg-background-header-dark md:h-[16vw]">
