@@ -15,6 +15,7 @@ module.exports = {
       "bg-youtube-primary",
       "bg-background-dark",
       "left-[25px]",
+      "left-1",
     ],
   },
   darkMode: "class", // or 'media' or 'class'
